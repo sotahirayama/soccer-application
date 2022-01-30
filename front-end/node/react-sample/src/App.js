@@ -35,7 +35,7 @@ function App() {
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={myPosition}
-            zoom={17}
+            zoom={1}
             onLoad={getCurrentPosition}
           >
             <Marker position={myPosition}></Marker>
