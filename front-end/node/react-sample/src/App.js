@@ -32,7 +32,6 @@ function App() {
       setPosition({ latitude, longitude });
     });
   };
-
   return (
     
     <div className="App">
