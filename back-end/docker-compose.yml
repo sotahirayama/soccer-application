@@ -8,7 +8,7 @@ services:
     volumes:
       - ./cmd:/go/src/app # マウントディレクトリ
   
-  db:
+  mysql:
     image: mysql:8.0.21
     ports:
       - '3306:3306'
@@ -18,3 +18,16 @@ services:
       MYSQL_PASSWORD: 'webpass'
       MYSQL_ROOT_PASSWORD: 'pass'
       MYSQL_DATABASE: 'go_mysql8_development'
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql:mysql
+    ports:
+      - '${FORWARD_PHPMYADMIN_PORT:-8888}:80'
+    environment:
+      MYSQL_USERNAME: "${DB_USERNAME}"
+      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+      PMA_HOST: mysql
+      PMA_ABSOLUTE_URI: 'http://localhost:${FORWARD_PHPMYADMIN_PORT:-8888}/'
+    volumes:
+      - /sessions
