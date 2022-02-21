@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: ./build/Dockerfile
     tty: true # コンテナの永続化
+    ports:
+      - '8081:8081'
     volumes:
       - ./cmd:/go/src/app # マウントディレクトリ
   
