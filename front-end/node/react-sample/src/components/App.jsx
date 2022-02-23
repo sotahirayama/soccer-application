@@ -1,6 +1,7 @@
 
-import './App.css';
+import './../App.css';
 import React, { useState } from 'react';
+import Events from "./Events";
 import { GoogleMap, LoadScript, Marker} from "@react-google-maps/api";
 
 const containerStyle = {
@@ -46,6 +47,7 @@ function App() {
           <Marker position={myPosition} />
         </GoogleMap>
       </LoadScript>
+      <Events></Events>
       </header>
     </div>
   );
