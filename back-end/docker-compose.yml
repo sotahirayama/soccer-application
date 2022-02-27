@@ -1,35 +1,37 @@
 version: "3"
-services: 
+services:
   goapp: # サービス名
+    container_name: "goapp_backend"
     build: # ビルドに使うDockerファイルのパス
       context: .
       dockerfile: ./build/Dockerfile
     tty: true # コンテナの永続化
     ports:
-      - '8081:8081'
+      - "8081:8081"
     volumes:
       - ./cmd:/go/src/app # マウントディレクトリ
-  
+
   mysql:
+    container_name: "mysql_go"
     image: mysql:8.0.21
     ports:
-      - '3306:3306'
+      - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_USER: 'webuser'
-      MYSQL_PASSWORD: 'webpass'
-      MYSQL_ROOT_PASSWORD: 'pass'
-      MYSQL_DATABASE: 'go_mysql8_development'
+      MYSQL_USER: "webuser"
+      MYSQL_PASSWORD: "webpass"
+      MYSQL_ROOT_PASSWORD: "pass"
+      MYSQL_DATABASE: "go_mysql8_development"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     links:
       - mysql:mysql
     ports:
-      - '${FORWARD_PHPMYADMIN_PORT:-8888}:80'
+      - "${FORWARD_PHPMYADMIN_PORT:-8888}:80"
     environment:
       MYSQL_USERNAME: "${DB_USERNAME}"
       MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
       PMA_HOST: mysql
-      PMA_ABSOLUTE_URI: 'http://localhost:${FORWARD_PHPMYADMIN_PORT:-8888}/'
+      PMA_ABSOLUTE_URI: "http://localhost:${FORWARD_PHPMYADMIN_PORT:-8888}/"
     volumes:
       - /sessions
