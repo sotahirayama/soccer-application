@@ -1,8 +1,11 @@
 
 import './../App.css';
-import React, { useState } from 'react';
-import Events from "./Events";
+import React, { useState ,useEffect} from 'react';
+import Events from "./Event";
 import { GoogleMap, LoadScript, Marker} from "@react-google-maps/api";
+
+// import axios from 'axios'
+
 
 const containerStyle = {
   width: "400px",
@@ -10,17 +13,38 @@ const containerStyle = {
 };
 
 
-
+// function createCard(contact) {
+//   return (
+//     <Card
+//       key={contact.id}
+//       name={contact.name}
+//       img={contact.imgURL}
+//       tel={contact.phone}
+//       email={contact.email}
+//     />
+//   );
+// }
 
 
 function App() {
   const [position,setPosition] = useState({ latitude: null, longitude: null });
+  // const [notes, getNotes] = useState('');
 
-  // const center = {
-  //   lat: 35.69575,
-  //   lng: 139.77521,
-  // };
-  
+  // useEffect(() => {
+  //   getAllNotes();
+  // }, []);
+
+  //const url = 'http://localhost:8081/';
+  //const getAllNotes = () => {
+  //   axios.get(`${url}past`)
+  //   .then((response) => {
+  //     GeolocationCoordinates(allNotes);
+  //   })
+  //   .catch(error => console.error(`Error: $(eroor)`));
+  // }
+
+
+
   const myPosition = {
     lat: position.latitude,
     lng: position.longitude,
@@ -48,6 +72,7 @@ function App() {
         </GoogleMap>
       </LoadScript>
       <Events></Events>
+      {/* {contacts.map(createCard)} */}
       </header>
     </div>
   );
