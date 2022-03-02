@@ -1,10 +1,10 @@
 
 import './../App.css';
 import React, { useState ,useEffect} from 'react';
-import Events from "./Event";
+import Event from "./Event";
 import { GoogleMap, LoadScript, Marker} from "@react-google-maps/api";
 
-// import axios from 'axios'
+import axios from 'axios'
 
 
 const containerStyle = {
@@ -13,35 +13,35 @@ const containerStyle = {
 };
 
 
-// function createCard(contact) {
-//   return (
-//     <Card
-//       key={contact.id}
-//       name={contact.name}
-//       img={contact.imgURL}
-//       tel={contact.phone}
-//       email={contact.email}
-//     />
-//   );
-// }
+function createEvent(event) {
+  return (
+    <Event
+      key={event.id}
+      name={event.name}
+      place={event.place}
+      location={event.location}
+    />
+  );
+}
 
 
 function App() {
   const [position,setPosition] = useState({ latitude: null, longitude: null });
-  // const [notes, getNotes] = useState('');
+  const [events, getEvents] = useState([]);
 
-  // useEffect(() => {
-  //   getAllNotes();
-  // }, []);
+  useEffect(() => {
+    getAllEvents();
+  }, []);
 
-  //const url = 'http://localhost:8081/';
-  //const getAllNotes = () => {
-  //   axios.get(`${url}past`)
-  //   .then((response) => {
-  //     GeolocationCoordinates(allNotes);
-  //   })
-  //   .catch(error => console.error(`Error: $(eroor)`));
-  // }
+  const url = 'http://localhost:8081/';
+  const getAllEvents = () => {
+    axios.get(`${url}events`)
+    .then((response) => {
+      const allEvents = response.data;
+      getEvents(allEvents);
+    })
+    .catch(error => console.error(`Error: ${error}`));
+  }
 
 
 
@@ -71,8 +71,7 @@ function App() {
           <Marker position={myPosition} />
         </GoogleMap>
       </LoadScript>
-      <Events></Events>
-      {/* {contacts.map(createCard)} */}
+      {events.map(createEvent)}
       </header>
     </div>
   );
