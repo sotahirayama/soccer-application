@@ -32,23 +32,23 @@ func handleRequests() {
     http.HandleFunc("/events", returnAllEvents)
     log.Fatal(http.ListenAndServe(":8081", nil))
 }
-func fetchPlayers(w http.ResponseWriter, r *http.Request) {
-    db := GetDBConn()
+// func fetchPlayers(w http.ResponseWriter, r *http.Request) {
+//     db := GetDBConn()
 
-    db.Find(&players)
-    fmt.Println(players)
-    profJson, _ := json.Marshal(players)
-    fmt.Fprintf(w, string(profJson))
-}
-func GetDBConn() *gorm.DB {
-    db, err := gorm.Open(GetDBConfig())
-    if err != nil {
-        panic(err)
-    }
+//     db.Find(&players)
+//     fmt.Println(players)
+//     profJson, _ := json.Marshal(players)
+//     fmt.Fprintf(w, string(profJson))
+// }
+// func GetDBConn() *gorm.DB {
+//     db, err := gorm.Open(GetDBConfig())
+//     if err != nil {
+//         panic(err)
+//     }
 
-    db.LogMode(true)
-    return db
-}
+//     db.LogMode(true)
+//     return db
+// }
 func returnAllEvents(w http.ResponseWriter, r *http.Request) {
     enableCors(&w)
     events := Events{}
