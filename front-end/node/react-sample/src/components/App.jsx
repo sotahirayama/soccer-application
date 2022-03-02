@@ -13,7 +13,7 @@ const containerStyle = {
 };
 
 
-function createCard(event) {
+function createEvent(event) {
   return (
     <Event
       key={event.id}
@@ -71,7 +71,7 @@ function App() {
           <Marker position={myPosition} />
         </GoogleMap>
       </LoadScript>
-      {events.map(createCard)}
+      {events.map(createEvent)}
       </header>
     </div>
   );
