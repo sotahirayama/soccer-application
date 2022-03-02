@@ -27,7 +27,7 @@ function createEvent(event) {
 
 function App() {
   const [position,setPosition] = useState({ latitude: null, longitude: null });
-  const [events, getEvents] = useState('');
+  const [events, getEvents] = useState([]);
 
   useEffect(() => {
     getAllEvents();
