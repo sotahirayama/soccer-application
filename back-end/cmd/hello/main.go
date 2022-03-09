@@ -70,7 +70,7 @@ func main() {
     dsn := "root:pass@tcp(127.0.0.1:3306)/footomato?charset=utf8mb4&parseTime=True&loc=Local"
     db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
-    event := Event{Name: "5 aside football", Place:"Showa kinen kouen", Location:"lat:35.69575,lng:139.77521"}
+    event := Event{Name: "5-a-side football", Place:"Showa kinen kouen", Location:"lat:35.69575,lng:139.77521"}
 
     result := db.Create(&event)
 }
