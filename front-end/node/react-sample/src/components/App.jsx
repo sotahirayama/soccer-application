@@ -8,10 +8,9 @@ import axios from 'axios'
 
 
 const containerStyle = {
-  width: "400px",
-  height: "400px",
+  width: "650px",
+  height: "600px",
 };
-
 
 function createEvent(event) {
   return (
@@ -23,6 +22,7 @@ function createEvent(event) {
     />
   );
 }
+
 
 
 function App() {
@@ -58,9 +58,7 @@ function App() {
     });
   };
   return (
-    
-    <div className="App">
-      <header className="App-header">
+    <div className="left">
       <LoadScript googleMapsApiKey={process.env.GOOGLE_MAP_API_KEY}>
         <GoogleMap
           mapContainerStyle={containerStyle}
@@ -72,7 +70,6 @@ function App() {
         </GoogleMap>
       </LoadScript>
       {events.map(createEvent)}
-      </header>
     </div>
   );
 }
