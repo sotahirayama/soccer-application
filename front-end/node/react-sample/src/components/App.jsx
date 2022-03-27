@@ -6,6 +6,11 @@ import { GoogleMap, LoadScript, Marker} from "@react-google-maps/api";
 
 import axios from 'axios'
 import EventAddHeader from './EventAddHeader'
+import Header from './Header'
+import MapHeader from './MapHeader'
+import EventAdd from './EventAdd'
+import EventShowHeader from './EventShowHeader'
+import EventInformation from './EventInformation'
 
 
 const containerStyle = {
@@ -59,19 +64,28 @@ function App() {
     });
   };
   return (
-    <div className="left">
-      <LoadScript googleMapsApiKey={process.env.GOOGLE_MAP_API_KEY}>
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={myPosition}
-          zoom={17}
-          onLoad={getCurrentPosition}
-        >
-          <Marker position={myPosition} />
-        </GoogleMap>
-      </LoadScript>
-      <EventAddHeader />
-      {events.map(createEvent)}
+    <div>
+      <Header />
+      <div className="left">
+        <MapHeader />
+        <LoadScript googleMapsApiKey={process.env.GOOGLE_MAP_API_KEY}>
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={myPosition}
+            zoom={17}
+            onLoad={getCurrentPosition}
+          >
+            <Marker position={myPosition} />
+          </GoogleMap>
+        </LoadScript>
+        {events.map(createEvent)}
+      </div>
+      <div className='right'>
+        <EventAddHeader />
+        <EventAdd/>
+        <EventShowHeader/>
+        <EventInformation/>
+      </div>
     </div>
   );
 }
