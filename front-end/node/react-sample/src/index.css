@@ -1,13 +1,138 @@
 body {
-  margin: 0;
+  /* margin: 0; */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:rgb(174, 211, 228);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* .columns {
+  width: 42rem;
+  padding: 1rem;
+  margin: 0 auto;
+  background: #FFF5B8;
+  border-radius: 10px;
+  column-count: 2;
+  column-width: 20rem;
+  column-gap: 2rem;
+  text-align: justify;
+} */
+
+.left{
+  margin: 0;
+  text-align: left;
+  list-style: none;
+  width:48%;
+  display: inline-block;
+}
+
+.right{
+  float: right;
+  background-color: rgb(174, 211, 228);
+  margin: 0;
+  text-align: right;
+  list-style: none;
+  width:48%;
+  display: inline-block;
+}
+
+.heading {
+  text-align: center;
+  /* border: solid; */
+  border-bottom: 3px solid;
+  font-size: 5em;
+  color: #4f6fb4;
+  background-color:#ffffff;
+  margin: 20px 0 30px;
+  background-image: url("./images/footomato.png");
+  /**縦中央寄せのため*/
+  /* display: flex; */
+  /* position: absolute; */
+  /* height: 10vh; */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  width: 100%;
+  border-radius: 10px 10px 10px 10px; /* 左上・右上・右下・左下 */
+}
+
+.mapheading {
+  /* display: inline-flex; */
+  text-align: center;
+  border-bottom: 3px solid;
+  font-size: 2em;
+  width: 93%;
+  height: 100%;
+  color: #4f6fb4;
+  background-color:#ffffff;
+  margin: 20px 0 30px;
+}
+
+.eventaddheading {
+  text-align: center;
+  border-bottom: 3px solid;
+  font-size: 2em;
+  width: 93%;
+  height: 100%;
+  color: #883c88;
+  background-color:#ffffff;
+  margin: 20px 0 30px;
+}
+
+.eventshowheading {
+  text-align: center;
+  border-bottom: 3px solid;
+  font-size: 2em;
+  width: 93%;
+  height: 50%;
+  color: #883c88;
+  background-color:#ffffff;
+  margin: 20px 0 30px;
+}
+
+.eventinformation {
+  text-align: center;
+  border-bottom: 3px solid;
+  font-size: 2em;
+  width: 93%;
+  height: 50%;
+  color: #883c88;
+  background-color:#ffffff;
+  margin: 20px 0 30px;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(102, 30, 30);
+  width: 50%;
+}
+
+.Map{
+  width: "600px";
+  height: "400px";
+};
+
+.b-radius {
+  border-radius: 10px 10px 10px 10px; /* 左上・右上・右下・左下 */
+  }
