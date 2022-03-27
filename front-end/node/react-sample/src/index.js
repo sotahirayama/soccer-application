@@ -2,33 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
-import Header from './components/Header'
-import MapHeader from './components/MapHeader'
-import EventAddHeader from './components/EventAddHeader'
-import EventAdd from './components/EventAdd'
-import EventShowHeader from './components/EventShowHeader'
-import EventInformation from './components/EventInformation'
 // import { Grid } from '@material-ui/core';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>
-      <Header />
-    </div>
-    <div>
-      <div className='left'>
-        <MapHeader />
-        <App /> 
-      </div>
-      <div className='right'>
-        <EventAddHeader />
-        <EventAdd/>
-        <EventShowHeader/>
-        <EventInformation/>
-      </div>
-    </div>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
