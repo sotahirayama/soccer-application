@@ -7,6 +7,7 @@ import { GoogleMap, LoadScript, Marker} from "@react-google-maps/api";
 import axios from 'axios'
 import EventAddHeader from './EventAddHeader'
 import Header from './Header'
+import Footer from './Footer'
 import MapHeader from './MapHeader'
 import EventAdd from './EventAdd'
 import EventShowHeader from './EventShowHeader'
@@ -14,8 +15,9 @@ import EventInformation from './EventInformation'
 
 
 const containerStyle = {
-  width: "650px",
-  height: "600px",
+  padding: "43%",
+  // width: "100%",
+  // height: "100%",
 };
 
 function createEvent(event) {
@@ -85,6 +87,9 @@ function App() {
         <EventAdd/>
         <EventShowHeader/>
         <EventInformation/>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );
